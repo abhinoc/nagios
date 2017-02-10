@@ -1,0 +1,15 @@
+
+>check_ping!100.0,20%!500.0,60%
+
+This means that a warning is sent if the latency(RTA) is >100ms or 20% packet loss. An error will be sent if latency is >500ms of 60% packet loss.
+
+Again, you could increase the latency (RTA) warning to 150ms to get less messages.
+
+Example:-
+
+root@server-100  /usr/local/nagios/etc   /usr/local/nagios/libexec/check_ping -H 127.0.0.1 -w 100.0,20% -c 500.0,60% -p 5                                                     3 ↵  ⚡  180  07:27:04
+PING OK - Packet loss = 0%, RTA = 0.06 ms|rta=0.059000ms;100.000000;500.000000;0.000000 pl=0%;20;60;0
+root@server-100  /usr/local/nagios/etc   /usr/local/nagios/libexec/check_ping -H 10.39.193.12  -w 210.0,20% -c 500.0,60% -p 5                                                   ✓  ⚡  181  07:27:13
+PING OK - Packet loss = 0%, RTA = 201.47 ms|rta=201.466995ms;210.000000;500.000000;0.000000 pl=0%;20;60;0
+
+
